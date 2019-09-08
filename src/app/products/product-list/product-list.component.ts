@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
+  pageTitle: string = 'Stuff management';
+  products: Array<any> = [];
+
   constructor() { }
 
   ngOnInit() {
