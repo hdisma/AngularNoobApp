@@ -1,32 +1,67 @@
 <div class="card">
-    <div class="card-header">
-        {{pageTitle}}
+    <div class="header bg-blue-grey">
+        <h2>
+            Product List <small>This is a simple list of products...</small>
+        </h2>
+        <ul class="header-dropdown m-r--5">
+            <li>
+                <a href="#">
+                    <i class="material-icons">mic</i>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-icons">more_vert</i>
+                </a>
+                <ul class="dropdown-menu pull-right">
+                    <li><a class="waves-effect waves-block">Action</a></li>
+                    <li><a class="waves-effect waves-block">Another action</a></li>
+                    <li><a class="waves-effect waves-block">Something else here</a></li>
+                </ul>
+            </li>
+        </ul>
     </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-2">Filter by: </div>
-            <div class="col-md-4">
-                <input type="text" name="" id="">
+    <div class="body">
+        <!--No products Message-->
+        <div class="row" *ngIf="products === undefined || products.length === 0 || products === null">
+            <div class="col-lg-12">
+                <h2>There's no products to show :(</h2>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                 <h4>Filtered by: </h4>
+        <!--End of No products Message-->
+
+        <!--Input filter for products table-->
+        <div class="row" *ngIf="products && products.length">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <div class="form-line">
+                        <input type="text" class="form-control" placeholder="Search for">
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="table-responsive">
-            <table class="table" *ngIf="products && products.length">
+        <!--End of input filter for products table-->
+
+        <!--Products table-->
+        <div class="body table-responsive" *ngIf="products && products.length">
+            <table class="table table-condensed">
                 <thead>
-                    <th>
-                        <button class="btn btn-primary">Show Image</button>
-                    </th>
-                    <th>Product</th>
-                    <th>Code</th>
-                    <th>Available</th>
-                    <th>Price</th>
-                    <th>5 Star rating</th>
+                    <tr>
+                        <th>
+                            <button class="btn btn-primary">Show Image</button>
+                        </th>
+                        <th>Product</th>
+                        <th>Code</th>
+                        <th>Available</th>
+                        <th>Price</th>
+                        <th>5 Star rating</th>
+                    </tr>
                 </thead>
+                <tbody>
+
+                </tbody>
             </table>
         </div>
+        <!--End of products table-->
     </div>
 </div>

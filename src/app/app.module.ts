@@ -14,7 +14,8 @@ import { SearchBarComponent } from './main-layout/search-bar/search-bar.componen
     NavbarComponent,
     LeftSidebarComponent,
     RightSidebarComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule
