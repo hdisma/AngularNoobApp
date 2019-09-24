@@ -35,7 +35,7 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <div class="form-line">
-                        <input type="text" class="form-control" placeholder="Search for">
+                        <input type="text" [(ngModel)]="listFilter" class="form-control" placeholder="Search for">
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                 <thead>
                     <tr>
                         <th>
-                            <button class="btn btn-primary">Show Image</button>
+                            <button class="btn btn-primary" (click)='toogleImage()' > {{ isImageVisible ? 'Hide image' : 'Show Image'}} </button>
                         </th>
                         <th>Product</th>
                         <th>Code</th>
@@ -58,10 +58,20 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    <tr *ngFor='let product of filteredProducts'>
+                        <td>
+                            <img [hidden]="!isImageVisible" [src]='product.imageUrl' [title]='product.productName' [style.width.px]='90'>
+                        </td>
+                        <td>{{product.productName}}</td>
+                        <td>{{product.productCode}}</td>
+                        <td>{{product.releaseDate}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.starRating}}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
         <!--End of products table-->
+
     </div>
 </div>

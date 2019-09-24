@@ -7,6 +7,10 @@ import { NavbarComponent } from './main-layout/navbar/navbar.component';
 import { LeftSidebarComponent } from './main-layout/left-sidebar/left-sidebar.component';
 import { RightSidebarComponent } from './main-layout/right-sidebar/right-sidebar.component';
 import { SearchBarComponent } from './main-layout/search-bar/search-bar.component';
+import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
+import { StarComponent } from './products/star/star.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +19,17 @@ import { SearchBarComponent } from './main-layout/search-bar/search-bar.componen
     LeftSidebarComponent,
     RightSidebarComponent,
     SearchBarComponent,
-    ProductListComponent
+    ProductListComponent,
+    ConvertToSpacesPipe,
+    StarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
