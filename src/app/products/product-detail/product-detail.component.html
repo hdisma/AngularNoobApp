@@ -1,0 +1,52 @@
+<div class="card">
+    <div class="header bg-blue-grey">
+        <h2>
+            Product detail - Title <small>Description text here...</small>
+        </h2>
+        <ul class="header-dropdown m-r-3">
+            <li>
+                <button type="button" class="btn btn-primary waves-effect" (click)="onBack()">
+                    <i class="material-icons">keyboard_backspace</i>
+                    <span>BACK</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div class="body">
+        <div class="row">
+            <div class="col-md-7">
+                <div class='row'>
+                    <div class='col-md-4'>Name:</div>
+                    <div class='col-md-8'>{{product.productName}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Code:</div>
+                    <div class='col-md-8'>{{product.productCode | lowercase | convertToSpaces: '-'}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Description:</div>
+                    <div class='col-md-8'>{{product.description}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Price:</div>
+                    <div class='col-md-8'>{{product.price | currency}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Release date:</div>
+                    <div class='col-md-8'>{{product.releaseDate}}</div>
+                </div>                     
+                <div class='row'>
+                    <div class='col-md-4'>Star rate:</div>
+                    <div class='col-md-8'> <app-star [rating]='product.starRating' (starRatingClicked)="onNotify($event)" ></app-star> </div>
+                </div>             
+            </div>
+            <div class="col-md-5">
+                    <img class='center-block img-responsive'
+                    [style.width.px]='220'
+                    [style.margin.px]='2'
+                    [src]='product.imageUrl'
+                    [title]='product.productName'>
+            </div>
+        </div>
+    </div>
+</div>
