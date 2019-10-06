@@ -60,13 +60,21 @@
                 <tbody>
                     <tr *ngFor='let product of filteredProducts'>
                         <td>
-                            <img [hidden]="!isImageVisible" [src]='product.imageUrl' [title]='product.productName' [style.width.px]='90'>
+                            <a [routerLink]="['/products', product.productId]">
+                                <img [hidden]="!isImageVisible" [src]='product.imageUrl' [title]='product.productName' [style.width.px]='90'>
+                            </a>
                         </td>
-                        <td>{{product.productName}}</td>
+                        <td>
+                            <a [routerLink]="['/products', product.productId]">
+                                {{product.productName}}
+                            </a>
+                        </td>
                         <td>{{product.productCode}}</td>
                         <td>{{product.releaseDate}}</td>
-                        <td>{{product.price}}</td>
-                        <td>{{product.starRating}}</td>
+                        <td>{{product.price  | currency}}</td>
+                        <td>
+                            <app-star [rating]='product.starRating' (starRatingClicked)="onNotify($event)" ></app-star>
+                        </td>
                     </tr>
                 </tbody>
             </table>
